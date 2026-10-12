@@ -1,52 +1,52 @@
 [
   {
-    "id": "qhsdd-vinhhung-01",
-    "title": "QHSDĐ Vĩnh Hưng 01",
+    "id": "20261012_qhsdd-vinhhung-01",
+    "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 01",
     "group": "Bản đồ",
-    "pdf": "pdf/qhsdd-vinhhung-01.pdf",
-    "html": "html/qhsdd-vinhhung-01.html",
+    "pdf": "pdf/20261012_qhsdd-vinhhung-01.pdf",
+    "html": "html/20261012_qhsdd-vinhhung-01.html",
     "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 01 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
   },
   {
-    "id": "qhsdd-vinhhung-02",
-    "title": "QHSDĐ Vĩnh Hưng 02",
+    "id": "20261012_qhsdd-vinhhung-02",
+    "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 02",
     "group": "Bản đồ",
-    "pdf": "pdf/qhsdd-vinhhung-02.pdf",
-    "html": "html/qhsdd-vinhhung-02.html",
+    "pdf": "pdf/20261012_qhsdd-vinhhung-02.pdf",
+    "html": "html/20261012_qhsdd-vinhhung-02.html",
     "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 02 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
   },
   {
-    "id": "qhsdd-vinhhung-03",
-    "title": "QHSDĐ Vĩnh Hưng 03",
+    "id": "20261012_qhsdd-vinhhung-03",
+    "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 03",
     "group": "Bản đồ",
-    "pdf": "pdf/qhsdd-vinhhung-03.pdf",
-    "html": "html/qhsdd-vinhhung-03.html",
+    "pdf": "pdf/20261012_qhsdd-vinhhung-03.pdf",
+    "html": "html/20261012_qhsdd-vinhhung-03.html",
     "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 03 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
   },
   {
-    "id": "qhsdd-vinhhung-04",
-    "title": "QHSDĐ Vĩnh Hưng 04",
+    "id": "20261012_qhsdd-vinhhung-04",
+    "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 04",
     "group": "Bản đồ",
-    "pdf": "pdf/qhsdd-vinhhung-04.pdf",
-    "html": "html/qhsdd-vinhhung-04.html",
+    "pdf": "pdf/20261012_qhsdd-vinhhung-04.pdf",
+    "html": "html/20261012_qhsdd-vinhhung-04.html",
     "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 04 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
   },
   {
-    "id": "qh04-ban-do-su-dung-dat-quy-hoach",
-    "title": "QH04 - Bản đồ sử dụng đất quy hoạch",
+    "id": "20261012_qh04-ban-do-su-dung-dat-quy-hoach",
+    "title": "12/10/2026 - QH04 - Bản đồ sử dụng đất quy hoạch",
     "group": "Bản đồ",
-    "pdf": "pdf/QH04_BAN DO SU DUNG DAT QUY HOACH.pdf"
+    "pdf": "pdf/20261012_QH04_BAN DO SU DUNG DAT QUY HOACH.pdf"
   },
   {
-    "id": "qh05-ban-do-khong-gian-kien-truc-canh-quan",
-    "title": "QH05 - Bản đồ không gian kiến trúc cảnh quan",
+    "id": "20261012_qh05-ban-do-khong-gian-kien-truc-canh-quan",
+    "title": "12/10/2026 - QH05 - Bản đồ không gian kiến trúc cảnh quan",
     "group": "Bản đồ",
-    "pdf": "pdf/QH05_BAN DO KHONG GIAN KIEN TRUC CANH QUAN.pdf"
+    "pdf": "pdf/20261012_QH05_BAN DO KHONG GIAN KIEN TRUC CANH QUAN.pdf"
   },
   {
-    "id": "qh06-ban-do-qh-giao-thong-chi-gioi-xay-dung",
-    "title": "QH06 - Bản đồ QH giao thông & chỉ giới xây dựng",
+    "id": "20261012_qh06-ban-do-qh-giao-thong-chi-gioi-xay-dung",
+    "title": "12/10/2026 - QH06 - Bản đồ QH giao thông & chỉ giới xây dựng",
     "group": "Bản đồ",
-    "pdf": "pdf/QH06_BAN DO QH GIAO THONG & CHI GIOI XAY DUNG.pdf"
+    "pdf": "pdf/20261012_QH06_BAN DO QH GIAO THONG & CHI GIOI XAY DUNG.pdf"
   }
 ]
