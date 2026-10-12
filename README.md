@@ -1,23 +1,36 @@
 # Quy hoạch Sun Group – Vĩnh Hưng, Hà Nội
 
-Kho lưu trữ và công cụ tra cứu tài liệu quy hoạch liên quan đến dự án Sun Group tại khu vực Vĩnh Hưng, Hà Nội.
+## Cách xem tài liệu
 
-Dự án được xây dựng nhằm hỗ trợ cộng đồng dễ dàng tiếp cận, xem và đối chiếu các tài liệu quy hoạch dưới dạng PDF và HTML.
+GitHub Pages (sau khi bật Pages từ root repository, dùng domain mặc định):
 
-## Mục đích
+- Danh mục: <https://daoth90.github.io/sun_vinh_hung/>
+- Bản đồ: <https://daoth90.github.io/sun_vinh_hung/html/qhsdd-vinhhung-03.html>
+- Bản mẫu: <https://daoth90.github.io/sun_vinh_hung/html/demo.html>
 
-- Lưu trữ và tổng hợp các tài liệu quy hoạch có liên quan.
-- Cung cấp phiên bản HTML chuyển đổi từ PDF để thuận tiện tìm kiếm, tra cứu nội dung.
-- Hỗ trợ xem và đối chiếu thông tin giữa các tài liệu.
-- Tạo nguồn tham khảo công khai cho người dân quan tâm đến quy hoạch khu vực.
+Mở `index.html` qua HTTP server để tìm và xem tài liệu. Chạy local từ bất kỳ thư mục nào:
 
-## Nội dung
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1 --directory $HOME/workspace/sun_vinh_hung
+```
 
-Repository có thể bao gồm:
+- Danh mục: <http://127.0.0.1:8000/>
+- Bản đồ: <http://127.0.0.1:8000/html/qhsdd-vinhhung-03.html>
+- Bản mẫu: <http://127.0.0.1:8000/html/demo.html>
 
-- **Tài liệu PDF:** Bản đồ quy hoạch, bản vẽ, thuyết minh và các tài liệu liên quan.
-- **Tài liệu HTML:** Phiên bản được chuyển đổi từ PDF, thuận tiện xem trên trình duyệt.
-- **Tiện ích tra cứu:** Các công cụ hỗ trợ tìm kiếm và xem tài liệu.
+Dừng bằng `Ctrl+C`. Nếu port 8000 đã được dùng, đổi port và URL tương ứng. Mở qua HTTP thay vì `file://` để tải danh mục và HTML gốc trong iframe. Có thể phục vụ các file từ root repository trên GitHub Pages mà không cần build.
+
+Viewer hỗ trợ cuộn chuột để zoom tại con trỏ, pinch hai ngón để zoom tại trung điểm và kéo bằng chuột trái/một ngón để di chuyển. Slider zoom theo tâm vùng xem; nút reset về mức vừa chiều rộng. Mỗi lần mở hoặc refresh trang đều reset về mức vừa chiều rộng; không lưu zoom.
+
+Chỉnh `zoomDebounceMs` (delay slider, hiện 50 ms) và `wheelZoomSensitivity` trong `assets/js/viewer-config.js`. Chế độ kéo bản đồ không hỗ trợ chọn chữ hoặc bấm link bên trong tài liệu; link PDF vẫn nằm trên toolbar.
+
+`allowZoomOutBeyondFit` mặc định `false`: slider, wheel và pinch không thể thu nhỏ hơn mức reset vừa chiều rộng (ví dụ reset 11% thì minimum là 11%). Đặt `true` để cho phép thu nhỏ đến giới hạn gốc 1%. Mức vừa rộng được tính lại khi đổi kích thước cửa sổ.
+
+## Mục tiêu
+
+Lưu trữ, tra cứu và đối chiếu PDF cùng HTML chuyển đổi từ PDF về quy hoạch khu vực Vĩnh Hưng, Hà Nội. HTML gốc được giữ nguyên; viewer cung cấp chế độ đọc có zoom.
+
+Đây là kho tài liệu độc lập, không phải website chính thức. Khi xác minh thông tin, đối chiếu HTML với PDF và nguồn công bố; bản mẫu chỉ là nội dung giả lập.
 
 ## Cấu trúc thư mục
 
@@ -27,43 +40,39 @@ sun_vinh_hung/
 ├── LICENSE
 ├── index.html
 ├── pdf/
-│   └── ...
+│   └── qhsdd-vinhhung-03.pdf         # PDF gốc
 ├── html/
-│   └── ...
-└── assets/
-    └── ...
+│   ├── qhsdd-vinhhung-03.html        # Viewer có zoom
+│   ├── demo.html
+│   └── original/
+│       ├── qhsdd-vinhhung-03.html    # HTML đã parse, giữ nguyên
+│       └── demo.html
+├── assets/
+│   ├── css/
+│   └── js/
+├── metadata/
+│   └── documents.json              # Danh mục: id, title, group, html, pdf, description
+└── skills/
+    └── pdf-html-viewer/
+        └── SKILL.md
 ```
 
-## Hướng dẫn sử dụng
+PDF, HTML gốc và viewer dùng cùng tên file trong các thư mục tương ứng. Ảnh/font/CSS đi kèm giữ đúng đường dẫn tương đối dưới `html/original/`. Danh mục liên kết đến viewer và PDF, không có tùy chọn xem HTML gốc.
 
-1. Truy cập repository để xem hoặc tải tài liệu PDF.
-2. Mở các tệp HTML trực tiếp hoặc thông qua GitHub Pages.
-3. Khi cần xác minh thông tin, đối chiếu nội dung HTML với tài liệu PDF gốc và nguồn công bố chính thức.
+Khi parse PDF sang HTML, dùng zoom mặc định **5x**. Đây là mức zoom khi chuyển đổi tài liệu; viewer vẫn mở ở mức vừa chiều rộng.
 
-## Nguồn tài liệu
+## Cách dùng skill
 
-Các tài liệu được tổng hợp từ những nguồn có thể tiếp cận công khai hoặc được phép chia sẻ.
+Local skill nằm tại `skills/pdf-html-viewer/SKILL.md`. Gọi bằng đường dẫn trong yêu cầu cho Codex; skill này chưa được đăng ký vào danh sách skill tự động.
 
-Khi bổ sung tài liệu, nên ghi rõ:
+Skill nhận tên file, full path hoặc file được mention bằng `@`:
 
-- Tên và loại tài liệu.
-- Cơ quan hoặc tổ chức ban hành/công bố.
-- Ngày ban hành hoặc công bố (nếu có).
-- Đường dẫn nguồn.
-- Tình trạng tài liệu: dự thảo, lấy ý kiến, đã phê duyệt hoặc chưa xác định.
+> skills/pdf-html-viewer/ tạo viewer cho file qhsdd-vinhhung-03.html
 
-## Lưu ý quan trọng
+> skills/pdf-html-viewer/ tạo viewer cho file /absolute/path/qhsdd-vinhhung-03.html
 
-**Đây là dự án độc lập, không phải website chính thức của Sun Group hoặc bất kỳ cơ quan nhà nước nào.**
+> skills/pdf-html-viewer/ tạo viewer cho @qhsdd-vinhhung-03.html
 
-- Tài liệu được cung cấp cho mục đích tham khảo và tra cứu.
-- Phiên bản HTML có thể phát sinh sai sót trong quá trình chuyển đổi từ PDF.
-- Tài liệu lấy ý kiến, đề xuất hoặc dự thảo không đồng nghĩa với quy hoạch đã được phê duyệt.
-- Thông tin trong repository không thay thế văn bản quy hoạch, quyết định phê duyệt hoặc xác nhận chính thức của cơ quan có thẩm quyền.
-- Việc đăng tải, sử dụng và chia sẻ tài liệu phải tuân thủ quyền tác giả và các quy định pháp luật liên quan.
+Với tên file, skill tìm trong `html/original/`. Với full path hoặc `@`, skill dùng đúng file được chỉ định; nếu nằm ngoài thư mục gốc của repo, skill sao chép HTML cùng tài nguyên cần thiết vào `html/original/` và giữ nguyên file đầu vào.
 
-## Giấy phép
-
-Mã nguồn của các tiện ích do người duy trì dự án tự phát triển có thể được phân phối theo giấy phép MIT.
-
-Các tài liệu PDF, bản đồ, hình ảnh và nội dung chuyển đổi từ tài liệu của bên thứ ba không tự động thuộc phạm vi giấy phép MIT. Quyền sử dụng các nội dung này phụ thuộc vào nguồn gốc và điều kiện cấp phép tương ứng.
+Skill tạo hoặc cập nhật `html/qhsdd-vinhhung-03.html`, tìm PDF cùng tên trong `pdf/` và cập nhật `metadata/documents.json`. Bản HTML gốc được giữ nguyên.

@@ -1,0 +1,19 @@
+:root { font-family: system-ui, sans-serif; color: #202923; background: #e8eeeb; color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+.toolbar { flex-shrink: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 16px; background: white; border-bottom: 1px solid #bac8c0; }
+.toolbar a { color: #126b53; text-underline-offset: 3px; }
+.toolbar h1 { font-size: 16px; margin: 0; flex: 1 1 180px; overflow-wrap: anywhere; }
+.zoom-controls { display: flex; align-items: center; gap: 8px; }
+input[type=range] { width: 140px; accent-color: #126b53; }
+output { min-width: 7ch; font-variant-numeric: tabular-nums; text-align: right; }
+button { width: 36px; height: 36px; border: 1px solid #bac8c0; border-radius: 4px; background: #fff; font-size: 20px; cursor: pointer; color: #202923; }
+button:hover { background: #edf4f0; }
+.viewport { flex: 1; min-height: 0; overflow: auto; padding: 20px; overscroll-behavior: contain; touch-action: none; user-select: none; cursor: grab; }
+.viewport.dragging { cursor: grabbing; }
+.stage { position: relative; margin: 0 auto; background: white; box-shadow: 0 2px 10px #0002; }
+iframe { display: block; border: 0; position: absolute; left: 0; top: 0; transform-origin: top left; background: white; pointer-events: none; }
+.viewer-status { margin: 0; padding: 8px 16px; background: #fff; color: #7b491e; font-size: 13px; }
+.viewer-status:empty { display: none; }
+:focus-visible { outline: 3px solid #d58a34; outline-offset: 3px; }
+@media (max-width: 600px) { .toolbar { gap: 8px; padding: 8px; } .toolbar h1 { flex-basis: calc(100% - 100px); } .zoom-controls { width: 100%; } input[type=range] { flex: 1; min-width: 50px; } .viewport { padding: 12px; } }
