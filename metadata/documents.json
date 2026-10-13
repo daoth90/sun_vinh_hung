@@ -1,6 +1,7 @@
 [
   {
     "id": "20261012_qhsdd-vinhhung-01",
+    "scale": 5,
     "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 01",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-01.pdf",
@@ -9,6 +10,7 @@
   },
   {
     "id": "20261012_qhsdd-vinhhung-02",
+    "scale": 5,
     "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 02",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-02.pdf",
@@ -17,6 +19,7 @@
   },
   {
     "id": "20261012_qhsdd-vinhhung-03",
+    "scale": 8,
     "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 03",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-03.pdf",
@@ -25,6 +28,7 @@
   },
   {
     "id": "20261012_qhsdd-vinhhung-04",
+    "scale": 5,
     "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 04",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-04.pdf",
@@ -33,20 +37,32 @@
   },
   {
     "id": "20261012_qh04-ban-do-su-dung-dat-quy-hoach",
+    "scale": 0,
     "title": "12/10/2026 - QH04 - Bản đồ sử dụng đất quy hoạch",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_QH04_BAN DO SU DUNG DAT QUY HOACH.pdf"
   },
   {
     "id": "20261012_qh05-ban-do-khong-gian-kien-truc-canh-quan",
+    "scale": 0,
     "title": "12/10/2026 - QH05 - Bản đồ không gian kiến trúc cảnh quan",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_QH05_BAN DO KHONG GIAN KIEN TRUC CANH QUAN.pdf"
   },
   {
     "id": "20261012_qh06-ban-do-qh-giao-thong-chi-gioi-xay-dung",
+    "scale": 0,
     "title": "12/10/2026 - QH06 - Bản đồ QH giao thông & chỉ giới xây dựng",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_QH06_BAN DO QH GIAO THONG & CHI GIOI XAY DUNG.pdf"
+  },
+  {
+    "id": "20260626_CONCEPT",
+    "title": "12/10/2026 - CONCEPT",
+    "group": "Bản đồ",
+    "scale": 5,
+    "description": "",
+    "pdf": "pdf/20260626_CONCEPT.pdf",
+    "html": "html/20260626_CONCEPT.html"
   }
 ]

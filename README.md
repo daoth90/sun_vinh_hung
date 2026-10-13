@@ -51,7 +51,7 @@ sun_vinh_hung/
 │   ├── css/
 │   └── js/
 ├── metadata/
-│   └── documents.json              # Danh mục: id, title, group, html, pdf, description
+│   └── documents.json              # Danh mục: id, title, group, html, pdf, description, scale
 └── skills/
     └── pdf-html-viewer/
         └── SKILL.md
@@ -60,6 +60,24 @@ sun_vinh_hung/
 PDF, HTML gốc và viewer dùng cùng tên file trong các thư mục tương ứng. Ảnh/font/CSS đi kèm giữ đúng đường dẫn tương đối dưới `html/original/`. Danh mục liên kết đến viewer và PDF, không có tùy chọn xem HTML gốc.
 
 Khi parse PDF sang HTML, dùng zoom mặc định **5x**. Đây là mức zoom khi chuyển đổi tài liệu; viewer vẫn mở ở mức vừa chiều rộng.
+
+`scale` trong `metadata/documents.json` là số biểu thị scale chuyển đổi. Ví dụ `5` hiển thị `Scale: 5x`, `8` hiển thị `Scale: 8x`; `0` hoặc không có field thì ẩn nhãn. Field này không thay đổi zoom mặc định của viewer. Các tài liệu chưa xác nhận scale được đặt `0`.
+
+## Thêm tài liệu qua localhost
+
+Tool riêng trên máy này nằm trong `tools/add-resource/`, được Git ignore. Chạy từ root repo:
+
+```bash
+node tools/add-resource/server.mjs
+```
+
+Mở <http://127.0.0.1:8766/add-resource>, chọn PDF, Original HTML hoặc cả hai, nhập metadata rồi nhấn Add. Khi có Original HTML, tool gọi Codex CLI với skill `pdf-html-viewer` để tạo viewer; khi chỉ có PDF, tool thêm tài liệu và cập nhật danh mục. Yêu cầu Node 22+, Python 3 và Codex CLI đã đăng nhập để tạo viewer. Có thể đổi port bằng `node tools/add-resource/server.mjs 8767`.
+
+Tool sao chép file đầu vào, giữ nguyên file tại vị trí đã chọn; chỉ đưa kết quả hợp lệ vào `pdf/`, `html/original/`, `html/` và `metadata/documents.json`. PDF và HTML cần cùng tên trước phần mở rộng. Nếu chỉ chọn PDF thì thêm mục PDF vào danh mục. HTML cần được chuyển đổi trước; tool không tự parse PDF. File trùng tên hoặc ID đã tồn tại sẽ được báo lỗi. Không tự commit hoặc push.
+
+Danh mục và kết quả import chỉ hiển thị `Xem HTML` khi có viewer, `Xem PDF` khi có PDF. HTML upload nên nhúng sẵn ảnh/font/CSS vì form chỉ nhận hai loại file trên.
+
+Tool không được đưa lên GitHub Pages và không có trong clone mới vì bị Git ignore; tài liệu và metadata tạo ra vẫn được theo dõi bằng Git.
 
 ## Cách dùng skill
 
