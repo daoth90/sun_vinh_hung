@@ -3,7 +3,6 @@
   const stage = document.getElementById('document-stage');
   const viewport = document.getElementById('document-viewport');
   const slider = document.getElementById('zoom');
-  const value = document.getElementById('zoom-value');
   const status = document.getElementById('viewer-status');
   const absoluteMinimum = Number(slider.min);
   let width = Number(frame.dataset.width) || 1100;
@@ -57,7 +56,6 @@
     stage.style.width = `${width * scale}px`;
     stage.style.height = `${height * scale}px`;
     slider.value = String(percent);
-    value.value = `${percent}%`;
     const newRect = frame.getBoundingClientRect();
     viewport.scrollLeft += newRect.left + x * scale - centerX;
     viewport.scrollTop += newRect.top + y * scale - centerY;
@@ -80,7 +78,6 @@
     clearTimeout(zoomTimer);
     updateZoomMinimum();
     slider.value = String(percent);
-    value.value = `${percent}%`;
     fitMode = false;
   }
 
@@ -177,7 +174,6 @@
     flushInteraction();
     clearTimeout(zoomTimer);
     const next = Number(slider.value);
-    value.value = `${next}%`;
     const configuredDelay = Number(window.PDF_HTML_VIEWER_CONFIG?.zoomDebounceMs ?? 100);
     const delay = Number.isFinite(configuredDelay) ? Math.max(0, configuredDelay) : 100;
     zoomTimer = setTimeout(() => { fitMode = false; apply(next); }, delay);

@@ -6,7 +6,6 @@ body { margin: 0; height: 100dvh; display: flex; flex-direction: column; overflo
 .toolbar h1 { font-size: 16px; margin: 0; flex: 1 1 180px; overflow-wrap: anywhere; }
 .zoom-controls { display: flex; align-items: center; gap: 8px; }
 input[type=range] { width: 140px; accent-color: #126b53; }
-output { min-width: 7ch; font-variant-numeric: tabular-nums; text-align: right; }
 button { width: 36px; height: 36px; border: 1px solid #bac8c0; border-radius: 4px; background: #fff; font-size: 20px; cursor: pointer; color: #202923; }
 button:hover { background: #edf4f0; }
 .viewport { flex: 1; min-height: 0; overflow: auto; padding: 20px; overscroll-behavior: contain; touch-action: none; user-select: none; cursor: grab; }

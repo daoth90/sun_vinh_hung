@@ -50,12 +50,6 @@ function render() {
         links.append(link);
       }
       article.append(title);
-      if (typeof doc.scale === 'number' && Number.isFinite(doc.scale) && doc.scale > 0) {
-        const scale = document.createElement('p');
-        scale.className = 'document-scale';
-        scale.textContent = `Scale: ${doc.scale}x`;
-        article.append(scale);
-      }
       if (doc.description) {
         const description = document.createElement('p');
         description.textContent = doc.description;

@@ -20,7 +20,7 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory $HOME/workspace/sun_vin
 
 Dừng bằng `Ctrl+C`. Nếu port 8000 đã được dùng, đổi port và URL tương ứng. Mở qua HTTP thay vì `file://` để tải danh mục và HTML gốc trong iframe. Có thể phục vụ các file từ root repository trên GitHub Pages mà không cần build.
 
-Viewer hỗ trợ cuộn chuột để zoom tại con trỏ, pinch hai ngón để zoom tại trung điểm và kéo bằng chuột trái/một ngón để di chuyển. Slider zoom theo tâm vùng xem; nút reset về mức vừa chiều rộng. Mỗi lần mở hoặc refresh trang đều reset về mức vừa chiều rộng; không lưu zoom.
+Viewer hỗ trợ cuộn chuột để zoom tại con trỏ, pinch hai ngón để zoom tại trung điểm và kéo bằng chuột trái/một ngón để di chuyển. Slider zoom theo tâm vùng xem nhưng không hiển thị phần trăm zoom; nút reset về mức vừa chiều rộng. Mỗi lần mở hoặc refresh trang đều reset về mức vừa chiều rộng; không lưu zoom.
 
 Chỉnh `zoomDebounceMs` (delay slider, hiện 50 ms) và `wheelZoomSensitivity` trong `assets/js/viewer-config.js`. Chế độ kéo bản đồ không hỗ trợ chọn chữ hoặc bấm link bên trong tài liệu; link PDF vẫn nằm trên toolbar.
 
@@ -61,7 +61,7 @@ PDF, HTML gốc và viewer dùng cùng tên file trong các thư mục tương �
 
 Khi parse PDF sang HTML, dùng zoom mặc định **5x**. Đây là mức zoom khi chuyển đổi tài liệu; viewer vẫn mở ở mức vừa chiều rộng.
 
-`scale` trong `metadata/documents.json` là số biểu thị scale chuyển đổi. Ví dụ `5` hiển thị `Scale: 5x`, `8` hiển thị `Scale: 8x`; `0` hoặc không có field thì ẩn nhãn. Field này không thay đổi zoom mặc định của viewer. Các tài liệu chưa xác nhận scale được đặt `0`.
+`scale` trong `metadata/documents.json` là số biểu thị scale chuyển đổi để lưu metadata nội bộ. Field này không hiển thị trên giao diện và không thay đổi zoom mặc định của viewer. Các tài liệu chưa xác nhận scale được đặt `0`.
 
 ## Thêm tài liệu qua localhost
 
