@@ -26,6 +26,43 @@ Chỉnh `zoomDebounceMs` (delay slider, hiện 50 ms) và `wheelZoomSensitivity`
 
 `allowZoomOutBeyondFit` mặc định `false`: slider, wheel và pinch không thể thu nhỏ hơn mức reset vừa chiều rộng (ví dụ reset 11% thì minimum là 11%). Đặt `true` để cho phép thu nhỏ đến giới hạn gốc 1%. Mức vừa rộng được tính lại khi đổi kích thước cửa sổ.
 
+## Google Maps dưới lớp quy hoạch
+
+Bản thử cho tờ 03: `html/20261012_qhsdd-vinhhung-03.html?view=map`. Có thể chuyển giữa **Tài liệu** và **Bản đồ** ngay trên toolbar. Chế độ bản đồ dùng nguyên HTML gốc trong iframe sandbox, không xuất ảnh hoặc tile mới. Google Maps điều khiển kéo/zoom chung; hai slider điều khiển opacity độc lập. Ảnh nền nhúng sẵn trong HTML vẫn có giới hạn độ phân giải của nguồn; chữ HTML giữ nguyên. Nền trắng trong ảnh cũng giảm opacity cùng lớp quy hoạch.
+
+### Tạo Google Maps API key
+
+1. Tạo project trong [Google Cloud Console](https://console.cloud.google.com/) và liên kết billing account.
+2. Bật **Maps JavaScript API** trong APIs & Services, rồi tạo API key trong Credentials.
+3. Application restrictions chọn **Websites**. Thêm referrer dùng thực tế, ví dụ `http://127.0.0.1:8000/*`, `http://localhost:8000/*`, `https://daoth90.github.io/sun_vinh_hung/*`. Port local khác cần referrer tương ứng.
+4. API restrictions chỉ cho phép **Maps JavaScript API**. Dán key vào form trong viewer để thử; form không lưu key vào localStorage. Khi triển khai, đặt key website trong `GOOGLE_MAPS_VIEWER_CONFIG.apiKey` tại `assets/js/viewer-config.js`. Key dùng phía trình duyệt luôn có thể đọc được, nên cần giới hạn referrer/API.
+
+Theo [bảng giá Google](https://developers.google.com/maps/billing-and-pricing/pricing), Dynamic Maps có 10.000 lượt tải miễn phí mỗi tháng; bậc đầu sau miễn phí là 7 USD/1.000 lượt (kiểm tra lại giá khi triển khai). Bật billing vẫn là điều kiện sử dụng. Xem [hướng dẫn key](https://developers.google.com/maps/documentation/javascript/get-api-key) và [usage/billing](https://developers.google.com/maps/documentation/javascript/usage-and-billing). Viewer chỉ khởi tạo bản đồ khi mở chế độ Bản đồ, và dùng lại cùng instance khi đổi qua lại. Có thể đặt quota trong Cloud Console để giới hạn mức sử dụng; budget alert chỉ cảnh báo, không tự dừng chi phí.
+
+### Cấu hình và căn lớp
+
+`assets/js/viewer-config.js` chứa cấu hình Google Maps chung: API key, ngôn ngữ, region, version, giới hạn zoom và mặc định của các lớp. `metadata/documents.json` chứa `mapOverlay` cho từng tài liệu:
+
+```json
+{
+  "enabled": true,
+  "calibrated": false,
+  "center": { "lat": 20.99, "lng": 105.877 },
+  "widthMeters": 3000,
+  "rotationDegrees": 0,
+  "zoom": 15,
+  "mapTypeId": "roadmap",
+  "mapOpacity": 1,
+  "documentOpacity": 0.6
+}
+```
+
+`center` là tâm **toàn bộ tờ HTML**, `widthMeters` là chiều rộng thực tế tương ứng với **toàn bộ tờ**, bao gồm cả khung/chú giải. Chiều cao suy ra từ tỷ lệ HTML. `rotationDegrees` xoay theo chiều kim đồng hồ; `zoom` là mức zoom Google Maps khi mở. Không dùng field `scale` của tài liệu để định vị. Đây là phép căn đồng dạng trên mặt phẳng Mercator; chưa hỗ trợ nắn ảnh theo nhiều điểm hoặc sửa sai lệch phép chiếu của bản quy hoạch.
+
+Giá trị tờ 03 hiện chỉ là điểm bắt đầu gần khu vực Vĩnh Hưng, **chưa xác nhận tọa độ chính xác**. Mở **Căn lớp**, chỉnh tâm, chiều rộng và góc xoay rồi **Áp dụng**. **Lấy tâm bản đồ** đặt tâm tờ tại tâm bản đồ đang xem. **Lưu trên máy** lưu riêng theo ID tài liệu trong trình duyệt; **Tải JSON** xuất cấu hình `mapOverlay` để cập nhật metadata khi đã căn xong. Nút reset trong Căn lớp xóa bản lưu cục bộ và khôi phục metadata. Chỉ đặt `calibrated: true` sau khi đối chiếu nhiều điểm mốc thực tế. Tải lại trang khởi động lại camera; không tự khôi phục lần pan/zoom cuối nếu chưa bấm lưu.
+
+Kiểm tra phép căn tọa độ: `node --test tests/map-overlay-geometry.test.cjs`.
+
 ## Mục tiêu
 
 Lưu trữ, tra cứu và đối chiếu PDF cùng HTML chuyển đổi từ PDF về quy hoạch khu vực Vĩnh Hưng, Hà Nội. HTML gốc được giữ nguyên; viewer cung cấp chế độ đọc có zoom.

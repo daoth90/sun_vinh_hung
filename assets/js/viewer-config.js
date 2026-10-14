@@ -5,3 +5,17 @@ window.PDF_HTML_VIEWER_CONFIG = {
   allowZoomOutBeyondFit: false,
   ...window.PDF_HTML_VIEWER_CONFIG,
 };
+
+// Site-wide Google Maps settings. Per-document placement belongs in documents.json.
+window.GOOGLE_MAPS_VIEWER_CONFIG = {
+  apiKey: '',
+  version: 'quarterly',
+  language: 'vi',
+  region: 'VN',
+  minZoom: 10,
+  maxZoom: 22,
+  mapTypeId: 'roadmap',
+  mapOpacity: 1,
+  documentOpacity: 0.6,
+  ...window.GOOGLE_MAPS_VIEWER_CONFIG,
+};

@@ -24,6 +24,17 @@
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-03.pdf",
     "html": "html/20261012_qhsdd-vinhhung-03.html",
+    "mapOverlay": {
+      "enabled": true,
+      "calibrated": false,
+      "center": { "lat": 20.99, "lng": 105.877 },
+      "widthMeters": 3000,
+      "rotationDegrees": 0,
+      "zoom": 15,
+      "mapTypeId": "roadmap",
+      "mapOpacity": 1,
+      "documentOpacity": 0.6
+    },
     "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 03 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
   },
   {

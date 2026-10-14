@@ -5,25 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QHSDĐ Vĩnh Hưng 03 · HTML viewer</title>
   <link rel="stylesheet" href="../assets/css/viewer.css">
+  <link rel="stylesheet" href="../assets/css/map-overlay-viewer.css">
   <script src="../assets/js/viewer-config.js" defer></script>
   <script src="../assets/js/pdf-html-viewer.js" defer></script>
+  <script src="../assets/js/map-overlay-geometry.js" defer></script>
+  <script src="../assets/js/map-overlay-viewer.js" defer></script>
 </head>
-<body>
+<body data-document-id="20261012_qhsdd-vinhhung-03">
   <header class="toolbar">
     <a href="../index.html">Danh mục</a>
     <h1>QHSDĐ Vĩnh Hưng 03</h1>
-    <div class="zoom-controls">
+    <div class="view-modes" role="group" aria-label="Chế độ xem">
+      <button id="document-mode" type="button" aria-pressed="true">Tài liệu</button>
+      <button id="map-mode" type="button" aria-pressed="false" disabled>Bản đồ</button>
+    </div>
+    <div id="document-controls" class="zoom-controls">
       <label for="zoom">Zoom</label>
       <input id="zoom" type="range" min="1" max="200" step="0.1" value="100">
       <button id="zoom-reset" type="button" title="Reset về mức vừa chiều rộng" aria-label="Reset zoom về mức vừa chiều rộng">↺</button>
     </div>
-    <a href="../pdf/20261012_qhsdd-vinhhung-03.pdf">PDF gốc</a>
+    <a href="../pdf/20261012_qhsdd-vinhhung-03.pdf">Xem PDF</a>
   </header>
+  <section id="map-controls" class="map-controls" aria-label="Lớp bản đồ" hidden>
+    <label>Google Maps <input id="map-opacity" type="range" min="0" max="1" step="0.01"><output id="map-opacity-value"></output></label>
+    <label>Quy hoạch <input id="planning-opacity" type="range" min="0" max="1" step="0.01"><output id="planning-opacity-value"></output></label>
+    <label>Nền <select id="map-type"><option value="roadmap">Đường phố</option><option value="satellite">Vệ tinh</option><option value="hybrid">Vệ tinh + nhãn</option><option value="terrain">Địa hình</option></select></label>
+    <button id="map-fit" type="button" title="Xem toàn bộ quy hoạch" aria-label="Xem toàn bộ quy hoạch" disabled>↺</button>
+    <button id="alignment-toggle" type="button" aria-expanded="false" aria-controls="map-settings">Căn lớp</button>
+  </section>
+  <section id="map-settings" class="map-settings" aria-label="Căn lớp quy hoạch" hidden>
+    <form id="alignment-form">
+      <label>Vĩ độ tâm <input id="alignment-lat" type="number" min="-85" max="85" step="any" required></label>
+      <label>Kinh độ tâm <input id="alignment-lng" type="number" min="-180" max="180" step="any" required></label>
+      <label>Chiều rộng tờ (m) <input id="alignment-width" type="number" min="1" step="any" required></label>
+      <label>Góc xoay (°) <input id="alignment-rotation" type="number" min="-180" max="180" step="any" required></label>
+      <button type="submit">Áp dụng</button>
+      <button id="alignment-center" type="button" disabled>Lấy tâm bản đồ</button>
+      <button id="alignment-save" type="button">Lưu trên máy</button>
+      <button id="alignment-export" type="button">Tải JSON</button>
+      <button id="alignment-reset" type="button" title="Khôi phục cấu hình tài liệu" aria-label="Khôi phục cấu hình tài liệu">↺</button>
+    </form>
+  </section>
   <p id="viewer-status" class="viewer-status" role="status"></p>
+  <p id="map-status" class="viewer-status" role="status" hidden></p>
   <main id="document-viewport" class="viewport" aria-label="Nội dung tài liệu">
     <div id="document-stage" class="stage">
       <iframe id="document-frame" src="original/qhsdd-vinhhung-03.html" data-width="16850" data-layout="pdf2htmlEX" title="QHSDĐ Vĩnh Hưng 03" sandbox="allow-same-origin"></iframe>
     </div>
+  </main>
+  <main id="map-viewport" class="map-viewport" aria-label="Google Maps và quy hoạch" hidden>
+    <div id="map-surface"></div>
+    <div id="map-fade" aria-hidden="true"></div>
+    <div id="planning-layer"><div id="planning-sheet"></div></div>
+    <div id="map-navigation" class="map-navigation" hidden>
+      <button id="map-zoom-in" type="button" title="Phóng to" aria-label="Phóng to">+</button>
+      <button id="map-zoom-out" type="button" title="Thu nhỏ" aria-label="Thu nhỏ">−</button>
+    </div>
+    <form id="map-key-form" class="map-key-form">
+      <label>Google Maps API key <input id="map-api-key" type="password" autocomplete="off" spellcheck="false" required></label>
+      <button type="submit">Mở bản đồ</button>
+      <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopener">Tạo API key</a>
+    </form>
   </main>
 </body>
 </html>
