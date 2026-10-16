@@ -1,12 +1,32 @@
 [
   {
+    "id": "20261012_link-qr-from-sun-group",
+    "title": "12/10/2026 - Link QR lưu trữ bản đồ của Sun Group",
+    "group": "Căn Cứ Pháp Lý",
+    "scale": 0,
+    "description": "",
+    "url": "https://drive.google.com/drive/folders/1KvSeTw2bBWM2N60TMdvS5t9bjVer3rf1?zarsrc=1303",
+    "hidden": false
+  },
+  {
+    "id": "20261012_4629_qdub_ub_2026_signed.pdf",
+    "title": "12/10/2026 - Quyết Định số 4629/QĐ-UBND",
+    "group": "Căn Cứ Pháp Lý",
+    "scale": 0,
+    "description": "QUYẾT định chấp thuận chủ trương đầu tư đồng thời chấp thuận nhà đầu tư (cấp lần đầu: ngày 28 tháng 08 năm 2026)",
+    "url": "https://drive.google.com/file/d/1AU9FUGxPGuHXaAPc_4MKZp16edR9D-Jq/view",
+    "hidden": false
+  },
+  {
     "id": "20261012_qhsdd-vinhhung-01",
     "scale": 5,
     "title": "12/10/2026 - QHSDĐ Vĩnh Hưng 01",
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-01.pdf",
     "html": "html/20261012_qhsdd-vinhhung-01.html",
-    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 01 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
+    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 01 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf).",
+    "url": "",
+    "hidden": false
   },
   {
     "id": "20261012_qhsdd-vinhhung-02",
@@ -15,7 +35,9 @@
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-02.pdf",
     "html": "html/20261012_qhsdd-vinhhung-02.html",
-    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 02 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
+    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 02 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf).",
+    "url": "",
+    "hidden": false
   },
   {
     "id": "20261012_qhsdd-vinhhung-03",
@@ -24,7 +46,9 @@
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-03.pdf",
     "html": "html/20261012_qhsdd-vinhhung-03.html",
-    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 03 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
+    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 03 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf).",
+    "url": "",
+    "hidden": false
   },
   {
     "id": "20261012_qhsdd-vinhhung-04",
@@ -33,28 +57,36 @@
     "group": "Bản đồ",
     "pdf": "pdf/20261012_qhsdd-vinhhung-04.pdf",
     "html": "html/20261012_qhsdd-vinhhung-04.html",
-    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 04 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf)."
+    "description": "Bản đồ chi tiết kế hoạch sử dụng đất tờ 04 (trích QH04_BAN DO SU DUNG DAT QUY HOACH.pdf).",
+    "url": "",
+    "hidden": false
   },
   {
     "id": "20261012_qh04-ban-do-su-dung-dat-quy-hoach",
     "scale": 0,
     "title": "12/10/2026 - QH04 - Bản đồ sử dụng đất quy hoạch",
     "group": "Bản đồ",
-    "pdf": "pdf/20261012_QH04_BAN DO SU DUNG DAT QUY HOACH.pdf"
+    "pdf": "pdf/20261012_QH04_BAN DO SU DUNG DAT QUY HOACH.pdf",
+    "url": "",
+    "hidden": false
   },
   {
     "id": "20261012_qh05-ban-do-khong-gian-kien-truc-canh-quan",
     "scale": 0,
     "title": "12/10/2026 - QH05 - Bản đồ không gian kiến trúc cảnh quan",
     "group": "Bản đồ",
-    "pdf": "pdf/20261012_QH05_BAN DO KHONG GIAN KIEN TRUC CANH QUAN.pdf"
+    "pdf": "pdf/20261012_QH05_BAN DO KHONG GIAN KIEN TRUC CANH QUAN.pdf",
+    "url": "",
+    "hidden": false
   },
   {
     "id": "20261012_qh06-ban-do-qh-giao-thong-chi-gioi-xay-dung",
     "scale": 0,
     "title": "12/10/2026 - QH06 - Bản đồ QH giao thông & chỉ giới xây dựng",
     "group": "Bản đồ",
-    "pdf": "pdf/20261012_QH06_BAN DO QH GIAO THONG & CHI GIOI XAY DUNG.pdf"
+    "pdf": "pdf/20261012_QH06_BAN DO QH GIAO THONG & CHI GIOI XAY DUNG.pdf",
+    "url": "",
+    "hidden": false
   },
   {
     "id": "20260626_CONCEPT",
@@ -63,6 +95,19 @@
     "scale": 5,
     "description": "",
     "pdf": "pdf/20260626_CONCEPT.pdf",
-    "html": "html/20260626_CONCEPT.html"
+    "html": "html/20260626_CONCEPT.html",
+    "url": "",
+    "hidden": false
+  },
+  {
+    "id": "20261012_qhsdd-vinhhung-lite-03",
+    "title": "12/10/2026 - QHSDĐ Vĩnh Hưng (Lite) 03",
+    "group": "Bản đồ",
+    "scale": 5,
+    "description": "",
+    "pdf": "pdf/20261012_qhsdd-vinhhung-lite-03.pdf",
+    "html": "html/20261012_qhsdd-vinhhung-lite-03.html",
+    "url": "",
+    "hidden": true
   }
 ]

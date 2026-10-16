@@ -1,20 +1,38 @@
 const list = document.getElementById('documents');
 const count = document.getElementById('count');
 const search = document.getElementById('search');
+const deprecatedLink = document.getElementById('deprecated-link');
+const deprecatedView = document.body.dataset.catalogView === 'deprecated';
+const catalogBase = new URL('../../', document.currentScript.src);
 let documents = [];
 
 function localLink(path) {
-  const url = new URL(path, location.href);
+  const url = new URL(path, catalogBase);
   if (url.origin !== location.origin || !['http:', 'https:'].includes(url.protocol)) {
     throw new Error('Document links must be local HTTP paths.');
   }
   return url.href;
 }
 
+function externalLink(value) {
+  const url = new URL(value);
+  if (!['http:', 'https:'].includes(url.protocol)) {
+    throw new Error('Document URLs must use HTTP or HTTPS.');
+  }
+  return url.href;
+}
+
 function render() {
   const query = search.value.trim().toLocaleLowerCase('vi');
-  const filtered = documents.filter(doc =>
-    [doc.title, doc.group, doc.description].join(' ').toLocaleLowerCase('vi').includes(query));
+  const visible = documents.filter(doc => doc.hidden !== true);
+  if (deprecatedLink) {
+    const deprecatedCount = visible.filter(doc => doc.group === 'Deprecated').length;
+    deprecatedLink.hidden = deprecatedCount === 0;
+    deprecatedLink.textContent = `Tài liệu cũ (${deprecatedCount})`;
+    deprecatedLink.href = new URL('deprecated/', catalogBase).href;
+  }
+  const filtered = visible.filter(doc => (doc.group === 'Deprecated') === deprecatedView).filter(doc =>
+    [doc.title, doc.group, doc.description, doc.url].join(' ').toLocaleLowerCase('vi').includes(query));
   list.replaceChildren();
   count.textContent = `${filtered.length} tài liệu`;
   const groups = new Map();
@@ -55,7 +73,19 @@ function render() {
         description.textContent = doc.description;
         article.append(description);
       }
-      article.append(links);
+      if (doc.url) {
+        const url = document.createElement('p');
+        url.className = 'document-url';
+        url.textContent = 'URL: ';
+        const link = document.createElement('a');
+        link.href = externalLink(doc.url);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = doc.url;
+        url.append(link);
+        article.append(url);
+      }
+      if (links.childElementCount) article.append(links);
       section.append(article);
     }
     list.append(section);
@@ -64,7 +94,7 @@ function render() {
 }
 
 search.addEventListener('input', render);
-fetch('metadata/documents.json')
+fetch(new URL('metadata/documents.json', catalogBase))
   .then(response => {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();

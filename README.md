@@ -51,13 +51,19 @@ sun_vinh_hung/
 │   ├── css/
 │   └── js/
 ├── metadata/
-│   └── documents.json              # Danh mục: id, title, group, html, pdf, description, scale
+│   └── documents.json              # Danh mục: id, title, group, html, pdf, url, description, scale, hidden
 └── skills/
     └── pdf-html-viewer/
         └── SKILL.md
 ```
 
 PDF, HTML gốc và viewer dùng cùng tên file trong các thư mục tương ứng. Ảnh/font/CSS đi kèm giữ đúng đường dẫn tương đối dưới `html/original/`. Danh mục liên kết đến viewer và PDF, không có tùy chọn xem HTML gốc.
+
+Để thêm liên kết web, đặt `url` thành URL đầy đủ bắt đầu bằng `https://` hoặc `http://`; không cần `html` hoặc `pdf`. Title hiển thị như tài liệu thông thường, bên dưới hiển thị `description` nếu có và dòng `URL: <full_url>`, trong đó URL đầy đủ là liên kết mở trong tab/cửa sổ mới. Field `url` có thể bỏ qua hoặc để rỗng đối với tài liệu thông thường. Ô tìm kiếm hỗ trợ cả nội dung URL.
+
+Đặt `hidden: true` để ẩn mục khỏi cả danh mục chính và trang tài liệu cũ. `hidden: false` hoặc không có field này thì mục được hiển thị theo nhóm. Đây chỉ là tùy chọn hiển thị; metadata và file vẫn truy cập được qua đường dẫn trực tiếp.
+
+Đặt `group: "Deprecated"` cho tài liệu đã lỗi thời. Các mục này chỉ xuất hiện tại `deprecated/`. Danh mục chính hiện nút **Tài liệu cũ (N)** khi có ít nhất một mục Deprecated không bị ẩn; số lượng không phụ thuộc từ khóa tìm kiếm. Trang tài liệu cũ có ô tìm kiếm riêng và liên kết quay lại danh mục chính.
 
 Khi parse PDF sang HTML, dùng zoom mặc định **5x**. Đây là mức zoom khi chuyển đổi tài liệu; viewer vẫn mở ở mức vừa chiều rộng.
 
