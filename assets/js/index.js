@@ -59,7 +59,7 @@ function render() {
       }
       const links = document.createElement('nav');
       links.setAttribute('aria-label', doc.title);
-      for (const [key, label] of [['html', 'Xem HTML'], ['pdf', 'PDF gốc']]) {
+      for (const [key, label] of [['html', 'Xem HTML (nhẹ hơn)'], ['pdf', 'PDF gốc']]) {
         const target = doc[key];
         if (!target) continue;
         const link = document.createElement('a');

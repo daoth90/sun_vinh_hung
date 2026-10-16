@@ -81,7 +81,7 @@ Mở <http://127.0.0.1:8766/add-resource>, chọn PDF, Original HTML hoặc cả
 
 Tool sao chép file đầu vào, giữ nguyên file tại vị trí đã chọn; chỉ đưa kết quả hợp lệ vào `pdf/`, `html/original/`, `html/` và `metadata/documents.json`. PDF và HTML cần cùng tên trước phần mở rộng. Nếu chỉ chọn PDF thì thêm mục PDF vào danh mục. HTML cần được chuyển đổi trước; tool không tự parse PDF. File trùng tên hoặc ID đã tồn tại sẽ được báo lỗi. Không tự commit hoặc push.
 
-Danh mục và kết quả import chỉ hiển thị `Xem HTML` khi có viewer, `Xem PDF` khi có PDF. HTML upload nên nhúng sẵn ảnh/font/CSS vì form chỉ nhận hai loại file trên.
+Danh mục và kết quả import chỉ hiển thị `Xem HTML (nhẹ hơn)` khi có viewer, `Xem PDF` khi có PDF. HTML upload nên nhúng sẵn ảnh/font/CSS vì form chỉ nhận hai loại file trên.
 
 Tool không được đưa lên GitHub Pages và không có trong clone mới vì bị Git ignore; tài liệu và metadata tạo ra vẫn được theo dõi bằng Git.
 
