@@ -71,20 +71,40 @@
     "hidden": false
   },
   {
-    "id": "20261012_qh05-ban-do-khong-gian-kien-truc-canh-quan",
+    "id": "20261012_qh05-ban-do-khong-gian-kien-truc-canh-quan-v1",
     "scale": 0,
     "title": "12/10/2026 - QH05 - Bản đồ không gian kiến trúc cảnh quan",
-    "group": "Bản đồ",
+    "group": "Deprecated",
     "pdf": "pdf/20261012_QH05_BAN DO KHONG GIAN KIEN TRUC CANH QUAN.pdf",
     "url": "",
     "hidden": false
   },
   {
-    "id": "20261012_qh06-ban-do-qh-giao-thong-chi-gioi-xay-dung",
+    "id": "20261012_qh06-ban-do-qh-giao-thong-chi-gioi-xay-dung-v1",
     "scale": 0,
     "title": "12/10/2026 - QH06 - Bản đồ QH giao thông & chỉ giới xây dựng",
-    "group": "Bản đồ",
+    "group": "Deprecated",
     "pdf": "pdf/20261012_QH06_BAN DO QH GIAO THONG & CHI GIOI XAY DUNG.pdf",
+    "url": "",
+    "hidden": false
+  },
+  {
+    "id": "20261017_qh05-ban-do-khong-gian-kien-truc-canh-quan-v2",
+    "scale": 5,
+    "title": "17/10/2026 - QH05 - Bản đồ không gian kiến trúc cảnh quan",
+    "group": "Bản đồ",
+    "pdf": "pdf/20261017_QH05_KHONG GIAN KTCQ.pdf",
+    "html": "html/20261017_QH05_KHONG GIAN KTCQ.html",
+    "url": "",
+    "hidden": false
+  },
+  {
+    "id": "20261017_qh06-ban-do-qh-giao-thong-chi-gioi-xay-dung-v2",
+    "scale": 5,
+    "title": "17/10/2026 - QH06 - Bản đồ QH giao thông & chỉ giới xây dựng",
+    "group": "Bản đồ",
+    "pdf": "pdf/20261017_QH06_BAN DO GIAO THONG VA CHI GIOI QUY HOACH.pdf",
+    "html": "html/20261017_QH06_BAN DO GIAO THONG VA CHI GIOI QUY HOACH.html",
     "url": "",
     "hidden": false
   },
